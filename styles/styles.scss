@@ -1,0 +1,22 @@
+.js {
+  min-height: 500px;
+
+}
+
+.stack {
+  &--html5 {
+    color: #f16524;
+  }
+  &--css3 {
+    color: #2465f1;
+  }
+
+  &--bootstrap {
+    // color: #860afb;
+    // color: #890afc;
+    color: #7709f6;
+  }
+  &--javascript {
+    color: #f5de19;
+  }
+}
