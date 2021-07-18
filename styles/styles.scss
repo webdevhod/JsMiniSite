@@ -1,9 +1,14 @@
+// @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
 .js {
   min-height: 500px;
-
 }
 
 .stack {
+  .row {
+    width: 100%;
+  }
+
   &--html5 {
     color: #f16524;
   }
@@ -20,3 +25,59 @@
     color: #f5de19;
   }
 }
+
+.logo-container {
+  width: 100%;
+}
+
+.app-logo {
+  color: red;
+  background: -webkit-linear-gradient(left, #FF0000, #FF7700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 10rem;
+}
+
+.app-logo-name {
+  display: none;
+}
+
+.fa-ul {
+  .fa-li {
+    color: #ff0000;
+  }
+}
+
+// X-Small devices (portrait phones, less than 576px)
+// No media query for `xs` since this is the default in Bootstrap
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {  }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {  }
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { 
+  .stack {
+    .row {
+      width: 75%;
+    }
+  }
+
+  .logo-container {
+    width: 50%;
+  }
+
+  .app-logo-name {
+    display: block;
+    font-family: 'Open Sans', sans-serif;
+    // font-family: 'Roboto Condensed', sans-serif;
+  }
+ }
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {  }
+
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) {  }
