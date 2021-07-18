@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Layout from '../components/layouts/Layout';
+import {useEffect} from 'react';
 
 function getChecklist() {
   let checkList = ["CSS and Bootstrap Layout", "Javascript Fundamentals", "Javascript Loops","Javascript Functions","Javascript DOM manipulation","Javascript If/Else","Javascript Boolean Logic"];
@@ -65,10 +66,55 @@ export default function Home() {
                 {getStackIcons()}
               </div>
               <div className="col order-first order-lg-last">
-                  {/* <h2 className="fw-bold text-danger app-logo-name">{appName}</h2> */}
-                {/* <div className="logo-container text-center">
-                  <i className="fas fa-sort-numeric-up app-logo"></i>
-                </div> */}
+                <p className="lead">Enter numeric values for start and end, and click run. </p>
+                <form>
+                  <div className="row row-cols-2">
+                    <div className="col">
+                      <label htmlFor="startValue" className="form-label">Start</label>
+                      <input type="number" className="form-control" id="startValue" min="0" max="499" value="0" />
+                    </div>
+                    <div className="col">
+                      <label htmlFor="endValue" className="form-label">End</label>
+                      <input type="number" className="form-control" id="endValue" min="1" max="500" value="10" />
+                    </div>
+                  </div>
+                </form>
+                <div className="options mt-3 d-flex flex-column align-items-end">
+                  <div className="form-check">
+                    <input className="form-check-input" type="radio" name="odd" id="even" defaultChecked />
+                    <label className="form-check-label" htmlFor="even">
+                      Even
+                    </label>
+                  </div>
+                  <div className="form-check">
+                    <input className="form-check-input" type="radio" name="odd" id="odd" />
+                    <label className="form-check-label" htmlFor="odd">
+                      Odd&nbsp;
+                    </label>
+                  </div>
+                  <button type="button" className="btn btn-danger border-2 mt-2">Run</button>
+                </div>
+                <table className="table mt-3 d-none" id="results">
+                  <thead>
+                    <tr>
+                      <th scope="col">Results</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>0</td>
+                    </tr>
+                    <tr className="table-primary">
+                      <td>1</td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>

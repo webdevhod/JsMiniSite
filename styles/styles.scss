@@ -1,5 +1,38 @@
 // @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
+
+$red:     #dc3545 !default;
+$orange:  #fd7e14 !default;
+
+// $red-100: tint-color($red, 80%) !default;
+// $red-200: tint-color($red, 60%) !default;
+// $red-300: tint-color($red, 40%) !default;
+// $red-400: tint-color($red, 20%) !default;
+// $red-500: $red !default;
+// $red-600: shade-color($red, 20%) !default;
+// $red-700: shade-color($red, 40%) !default;
+// $red-800: shade-color($red, 60%) !default;
+// $red-900: shade-color($red, 80%) !default;
+
+// $orange-100: tint-color($orange, 80%) !default;
+// $orange-200: tint-color($orange, 60%) !default;
+// $orange-300: tint-color($orange, 40%) !default;
+// $orange-400: tint-color($orange, 20%) !default;
+// $orange-500: $orange !default;
+// $orange-600: shade-color($orange, 20%) !default;
+// $orange-700: shade-color($orange, 40%) !default;
+// $orange-800: shade-color($orange, 60%) !default;
+// $orange-900: shade-color($orange, 80%) !default;
+
+// $yellow-100: tint-color($yellow, 80%) !default;
+// $yellow-200: tint-color($yellow, 60%) !default;
+// $yellow-300: tint-color($yellow, 40%) !default;
+// $yellow-400: tint-color($yellow, 20%) !default;
+// $yellow-500: $yellow !default;
+// $yellow-600: shade-color($yellow, 20%) !default;
+// $yellow-700: shade-color($yellow, 40%) !default;
+// $yellow-800: shade-color($yellow, 60%) !default;
+// $yellow-900: shade-color($yellow, 80%) !default;
 .js {
   min-height: 500px;
 }
@@ -32,7 +65,7 @@
 
 .app-logo {
   color: red;
-  background: -webkit-linear-gradient(left, #FF0000, #FF7700);
+  background: -webkit-linear-gradient(left, red, $orange);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 10rem;
@@ -44,7 +77,7 @@
 
 .fa-ul {
   .fa-li {
-    color: #ff0000;
+    color: $red;
   }
 }
 
