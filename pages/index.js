@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Layout from '../components/layouts/Layout';
-import {useEffect} from 'react';
+import numberShader from '../components/js/numberShader';
+import {useEffect, useState} from 'react';
 
 function getChecklist() {
   let checkList = ["CSS and Bootstrap Layout", "Javascript Fundamentals", "Javascript Loops","Javascript Functions","Javascript DOM manipulation","Javascript If/Else","Javascript Boolean Logic"];
@@ -16,30 +17,47 @@ function getChecklist() {
 function getStackIcons() {
   let colClass = "col-3";
   let faExtra = 'fa-4x';
+
   return (
     <h5 className="stack mt-4">
-    <div className="row">
-      <div className={`${colClass} stack--html5`}>
-        <i className={`fab fa-html5 ${faExtra}`} />
+      <div className="row">
+        <div className={`${colClass} stack--html5`}>
+          <i className={`fab fa-html5 ${faExtra}`} />
+        </div>
+        <div className={`${colClass} stack--css3`}>
+          <i className={`fab fa-css3-alt ${faExtra}`} />
+        </div>
+        <div className={`${colClass} stack--bootstrap`}>
+          <i className={`fab fa-bootstrap ${faExtra}`} />
+        </div>
+        <div className={`${colClass} stack--javascript`}>
+          <i className={`fab fa-js ${faExtra}`} />
+        </div>
       </div>
-      <div className={`${colClass} stack--css3`}>
-        <i className={`fab fa-css3-alt ${faExtra}`} />
-      </div>
-      <div className={`${colClass} stack--bootstrap`}>
-        <i className={`fab fa-bootstrap ${faExtra}`} />
-      </div>
-      <div className={`${colClass} stack--javascript`}>
-        <i className={`fab fa-js ${faExtra}`} />
-      </div>
-    </div>
-  </h5>
-
+    </h5>
   );
 }
 
-export default function Home() {
+export default function Home() { 
+  let minValue = 0;
+  let maxValue = 500;
+  let [reset, setReset] = useState(true);
+  let [startValue, setStartValue] = useState(0);
+  let [endValue, setEndValue] = useState(10);
   let appName = "Number Shader";
   let description = "This Javascript application will print out numbers between a range, and will highlight the even or odd numbers.";
+ 
+  function inputChange(handler, event) {
+    let inputValue = event.target.value;
+    if(inputValue >= minValue && inputValue <= maxValue) {
+      handler(inputValue);
+    }
+  }
+
+  useEffect(() => {
+    numberShader();
+  }, []);
+  
   return (
     <>
       <Head>
@@ -65,17 +83,16 @@ export default function Home() {
                 {getChecklist()}
                 {getStackIcons()}
               </div>
-              <div className="col order-first order-lg-last">
-                <p className="lead">Enter numeric values for start and end, and click run. </p>
+              <div className="col order-first order-lg-last pt-0 pt-lg-4 mb-5 mb-lg-0">
                 <form>
                   <div className="row row-cols-2">
                     <div className="col">
                       <label htmlFor="startValue" className="form-label">Start</label>
-                      <input type="number" className="form-control" id="startValue" min="0" max="499" value="0" />
+                      <input type="number" className="form-control" id="startValue" min={minValue} max={maxValue} value={startValue} onChange={(event) => {inputChange(setStartValue, event)}} />
                     </div>
                     <div className="col">
                       <label htmlFor="endValue" className="form-label">End</label>
-                      <input type="number" className="form-control" id="endValue" min="1" max="500" value="10" />
+                      <input type="number" className="form-control" id="endValue" min={minValue} max={maxValue} value={endValue} onChange={(event) => {inputChange(setEndValue, event)}} />
                     </div>
                   </div>
                 </form>
@@ -92,27 +109,16 @@ export default function Home() {
                       Odd&nbsp;
                     </label>
                   </div>
-                  <button type="button" className="btn btn-danger border-2 mt-2">Run</button>
+                  <button type="button" className="btn btn-danger border-2 mt-2" id="runButton" onClick={() => {setReset(false)}}>Run</button>
+                  <button type="button" className="btn btn-secondary border-2 mt-2" onClick={() => {setReset(true)}}>Clear</button>
                 </div>
-                <table className="table mt-3 d-none" id="results">
+                <table className={`table mt-3${reset ? " d-none" : ""}`} id="results">
                   <thead>
                     <tr>
                       <th scope="col">Results</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>0</td>
-                    </tr>
-                    <tr className="table-primary">
-                      <td>1</td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                    </tr>
                   </tbody>
                 </table>
               </div>

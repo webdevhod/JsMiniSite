@@ -33,6 +33,11 @@ $orange:  #fd7e14 !default;
 // $yellow-700: shade-color($yellow, 40%) !default;
 // $yellow-800: shade-color($yellow, 60%) !default;
 // $yellow-900: shade-color($yellow, 80%) !default;
+
+label {
+  cursor: pointer;
+}
+
 .js {
   min-height: 500px;
 }
