@@ -1,8 +1,7 @@
-// @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
 
-$red:     #dc3545 !default;
-$orange:  #fd7e14 !default;
+$red:     #dc3545;
+$orange:  #fd7e14;
 
 label {
   cursor: pointer;
@@ -13,24 +12,22 @@ label {
 }
 
 .stack {
-  .row {
-    width: 100%;
-  }
+  &__icon {
+    font-size: 4rem;
 
-  &--html5 {
-    color: #f16524;
-  }
-  &--css3 {
-    color: #2465f1;
-  }
-
-  &--bootstrap {
-    // color: #860afb;
-    // color: #890afc;
-    color: #7709f6;
-  }
-  &--javascript {
-    color: #f5de19;
+    &--html5 {
+      color: #f16524;
+    }
+    &--css3 {
+      color: #2465f1;
+    }
+  
+    &--bootstrap {
+      color: #7709f6;
+    }
+    &--javascript {
+      color: #f5de19;
+    }
   }
 }
 
@@ -56,23 +53,22 @@ label {
   }
 }
 
-// X-Small devices (portrait phones, less than 576px)
-// No media query for `xs` since this is the default in Bootstrap
-
 // Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {  }
+@media (min-width: 576px) {
+
+}
 
 // Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {  }
+@media (min-width: 768px) {
+  .stack {
+    &__icon {
+      font-size: 5rem;
+    }
+  }
+}
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) { 
-  .stack {
-    .row {
-      width: 75%;
-    }
-  }
-
   .logo-container {
     width: 50%;
   }
@@ -80,12 +76,15 @@ label {
   .app-logo-name {
     display: block;
     font-family: 'Open Sans', sans-serif;
-    // font-family: 'Roboto Condensed', sans-serif;
   }
  }
 
 // X-Large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {  }
+@media (min-width: 1200px) {
+
+}
 
 // XX-Large devices (larger desktops, 1400px and up)
-@media (min-width: 1400px) {  }
+@media (min-width: 1400px) {
+
+}

@@ -15,24 +15,13 @@ function getChecklist() {
 }
 
 function getStackIcons() {
-  let colClass = "col-3";
-  let faExtra = 'fa-4x';
-
   return (
     <h5 className="stack mt-4">
-      <div className="row">
-        <div className={`${colClass} stack--html5`}>
-          <i className={`fab fa-html5 ${faExtra}`} />
-        </div>
-        <div className={`${colClass} stack--css3`}>
-          <i className={`fab fa-css3-alt ${faExtra}`} />
-        </div>
-        <div className={`${colClass} stack--bootstrap`}>
-          <i className={`fab fa-bootstrap ${faExtra}`} />
-        </div>
-        <div className={`${colClass} stack--javascript`}>
-          <i className={`fab fa-js ${faExtra}`} />
-        </div>
+      <div className="d-flex gap-2 gap-md-3 gap-lg-4">
+          <i className="fab fa-html5 stack__icon stack__icon--html5" />
+          <i className="fab fa-css3-alt stack__icon stack__icon--css3" />
+          <i className="fab fa-bootstrap stack__icon stack__icon--bootstrap" />
+          <i className="fab fa-js stack__icon stack__icon--javascript" />
       </div>
     </h5>
   );
