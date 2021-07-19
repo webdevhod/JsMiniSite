@@ -9,7 +9,13 @@ label {
 
 .js {
   min-height: 500px;
+  &__app {
+    &--highlight {
+      border: .5rem solid rgba($red, .3);
+    }
+  }
 }
+
 
 .stack {
   &__icon {

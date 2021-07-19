@@ -30,7 +30,7 @@ function getStackIcons() {
 export default function Home() { 
   let minValue = 0;
   let maxValue = 500;
-  // let [reset, setReset] = useState(true);
+  let [highlight, setHighlight] = useState(false);
   let [startValue, setStartValue] = useState(0);
   let [endValue, setEndValue] = useState(10);
   let appName = "Number Shader";
@@ -41,6 +41,10 @@ export default function Home() {
     if(inputValue >= minValue && inputValue <= maxValue) {
       handler(inputValue);
     }
+  }
+
+  function handleHighlight(state=false) {
+    setHighlight(state);
   }
 
   useEffect(() => {
@@ -67,39 +71,39 @@ export default function Home() {
                 <h1 className="text-uppercase fw-bold text-danger">{appName}</h1>               
                 <p className="lead">{description}</p>
                 <div className="d-flex mb-4">
-                  <button className="btn btn-warning text-uppercase" type="button">TRY IT OUT</button>
+                  <button className="btn btn-warning text-uppercase" type="button" onClick={() => {handleHighlight(true)}}>TRY IT OUT</button>
                 </div>
                 {getChecklist()}
                 {getStackIcons()}
               </div>
-              <div className="col order-first order-lg-last pt-0 pt-lg-4 mb-5 mb-lg-0">
+              <div className={`col order-first order-lg-last pt-0 pt-lg-4 mb-5 mb-lg-0 px-3 js__app${highlight ? " js__app--highlight" : ""}`}>
                 <form>
                   <div className="row row-cols-2">
                     <div className="col">
                       <label htmlFor="startValue" className="form-label">Start</label>
-                      <input type="number" className="form-control" id="startValue" min={minValue} max={maxValue} value={startValue} onChange={(event) => {inputChange(setStartValue, event)}} />
+                      <input type="number" className="form-control" id="startValue" min={minValue} max={maxValue} value={startValue} onChange={(event) => {inputChange(setStartValue, event)}} onFocus={() => {handleHighlight(false)}} />
                     </div>
                     <div className="col">
                       <label htmlFor="endValue" className="form-label">End</label>
-                      <input type="number" className="form-control" id="endValue" min={minValue} max={maxValue} value={endValue} onChange={(event) => {inputChange(setEndValue, event)}} />
+                      <input type="number" className="form-control" id="endValue" min={minValue} max={maxValue} value={endValue} onChange={(event) => {inputChange(setEndValue, event)}} onFocus={() => {handleHighlight(false)}} />
                     </div>
                   </div>
                 </form>
                 <div className="options mt-3 d-flex flex-column align-items-end">
                   <div className="form-check">
-                    <input className="form-check-input" type="radio" name="odd" id="even" defaultChecked />
+                    <input className="form-check-input" type="radio" name="odd" id="even" onFocus={() => {handleHighlight(false)}} defaultChecked />
                     <label className="form-check-label" htmlFor="even">
                       Even
                     </label>
                   </div>
                   <div className="form-check">
-                    <input className="form-check-input" type="radio" name="odd" id="odd" />
+                    <input className="form-check-input" type="radio" name="odd" id="odd" onFocus={() => {handleHighlight(false)}} />
                     <label className="form-check-label" htmlFor="odd">
                       Odd&nbsp;
                     </label>
                   </div>
-                  <button type="button" className="btn btn-danger border-2 mt-2" id="runButton">Run</button>
-                  <button type="button" className="btn btn-secondary border-2 mt-2" id="resetButton">Clear</button>
+                  <button type="button" className="btn btn-danger border-2 mt-2" id="runButton" onClick={() => {handleHighlight(false)}} >Run</button>
+                  <button type="button" className="btn btn-secondary border-2 mt-2" id="resetButton" onClick={() => {handleHighlight(false)}} >Clear</button>
                 </div>
                 <table className={`table mt-3 d-none`} id="results">
                   <thead>
