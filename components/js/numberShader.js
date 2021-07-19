@@ -33,9 +33,11 @@ export default function numberShader () {
     return arr;
   }
   
+  let table = document.getElementById("results");
+  let tbody = table.getElementsByTagName("tbody")[0];
+
   function displayValues(range, even) {
-    let table = document.getElementById("results");
-    let tbody = table.getElementsByTagName("tbody")[0];
+    resetTable();
     let textArr = [];
     let highlightStyle = "table-danger";
     if(even) {
@@ -60,8 +62,15 @@ export default function numberShader () {
     table.classList.remove('d-none');
     tbody.innerHTML = textArr.join('');
   }
+  
+  function resetTable() {
+    table.classList.add('d-none');
+    tbody.innerHTML = "";
+  }
 
+  let resetButton = document.getElementById("resetButton");
   let runButton = document.getElementById("runButton");
   runButton.addEventListener("click", runCode);
+  resetButton.addEventListener("click", resetTable);
 }
 

@@ -41,7 +41,7 @@ function getStackIcons() {
 export default function Home() { 
   let minValue = 0;
   let maxValue = 500;
-  let [reset, setReset] = useState(true);
+  // let [reset, setReset] = useState(true);
   let [startValue, setStartValue] = useState(0);
   let [endValue, setEndValue] = useState(10);
   let appName = "Number Shader";
@@ -109,10 +109,10 @@ export default function Home() {
                       Odd&nbsp;
                     </label>
                   </div>
-                  <button type="button" className="btn btn-danger border-2 mt-2" id="runButton" onClick={() => {setReset(false)}}>Run</button>
-                  <button type="button" className="btn btn-secondary border-2 mt-2" onClick={() => {setReset(true)}}>Clear</button>
+                  <button type="button" className="btn btn-danger border-2 mt-2" id="runButton">Run</button>
+                  <button type="button" className="btn btn-secondary border-2 mt-2" id="resetButton">Clear</button>
                 </div>
-                <table className={`table mt-3${reset ? " d-none" : ""}`} id="results">
+                <table className={`table mt-3 d-none`} id="results">
                   <thead>
                     <tr>
                       <th scope="col">Results</th>
