@@ -6,9 +6,9 @@ export default function Header(props) {
   function getNavLinks() {
     return props.links.map((item, index) => {
       if (router.pathname == item[1]) {
-        return (<Link href={`${item[1]}`}><a className="nav-link active" aria-current="page" key={index}>{item[0]}</a></Link>);
+        return (<Link href={`${item[1]}`} key={index}><a className="nav-link active" aria-current="page">{item[0]}</a></Link>);
       } else {
-        return (<Link href={`${item[1]}`}><a className="nav-link" key={index}>{item[0]}</a></Link>);
+        return (<Link href={`${item[1]}`} key={index}><a className="nav-link">{item[0]}</a></Link>);
       }
     })
   }

@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Layout from '../../../components/layouts/Layout';
-import numberShader from '../../../components/js/numberShader';
+// import numberShader from '../../../components/js/numberShader';
 import {useEffect, useState} from 'react';
 import {numberShaderLinks as links} from '../../../components/js/links';
 
@@ -29,11 +29,13 @@ function getStackIcons() {
 }
 
 export default function Home() { 
+  let js_path = "/js/numberShader.js";
   let minValue = 0;
   let maxValue = 500;
   let [highlight, setHighlight] = useState(false);
   let [startValue, setStartValue] = useState(0);
   let [endValue, setEndValue] = useState(10);
+  let [code, setCode] = useState("");
   let appName = "Number Shader";
   let description = "This Javascript application will print out numbers between a range, and will highlight the even or odd numbers.";
  
@@ -48,8 +50,21 @@ export default function Home() {
     setHighlight(state);
   }
 
+  function getJsFile(path) {
+    try {
+      fetch(path)
+      .then(response => response.text())
+      .then(text => {
+        setCode(text)
+      })
+    } catch(error) {
+        console.log(error)
+      }
+  }
+
   useEffect(() => {
-    numberShader();
+    // numberShader();
+    getJsFile(js_path)
   }, []);
   
   return (
@@ -66,16 +81,7 @@ export default function Home() {
           <div className="js p-4">
             <div className="row row-cols-1 row-cols-lg-2 g-1">
               <div className="col order-last order-lg-first">
-                <div className="logo-container text-center">
-                  <i className="fas fa-sort-numeric-up app-logo"></i>
-                </div>
-                <h1 className="text-uppercase fw-bold text-danger">{appName}</h1>               
-                <p className="lead">{description}</p>
-                <div className="d-flex mb-4">
-                  <button className="btn btn-warning text-uppercase" type="button" onClick={() => {handleHighlight(true)}}>TRY IT OUT</button>
-                </div>
-                {getChecklist()}
-                {getStackIcons()}
+                {code}
               </div>
               <div className={`col order-first order-lg-last pt-0 pt-lg-4 mb-5 mb-lg-0 px-3 js__app${highlight ? " js__app--highlight" : ""}`}>
                 <form>
