@@ -1,8 +1,15 @@
 import Head from 'next/head';
 import Layout from '../../../components/layouts/Layout';
-// import numberShader from '../../../components/js/numberShader';
+// import numberShader from '../../../components/js/prism';
 import {useEffect, useState} from 'react';
 import {numberShaderLinks as links} from '../../../components/js/links';
+import "prismjs/themes/prism.css";
+// import "/css/prism-line-numbers.css";
+// import prism from '../../../components/js/prism';
+// import prism from '../../../public/js/prism';
+// import Script from 'next/script';
+import Prism from 'prismjs';
+import prismLineNumbers from '../../../components/js/prism-line-numbers'
 
 function getChecklist() {
   let checkList = ["CSS and Bootstrap Layout", "Javascript Fundamentals", "Javascript Loops","Javascript Functions","Javascript DOM manipulation","Javascript If/Else","Javascript Boolean Logic"];
@@ -29,7 +36,6 @@ function getStackIcons() {
 }
 
 export default function Home() { 
-  let js_path = "/js/numberShader.js";
   let minValue = 0;
   let maxValue = 500;
   let [highlight, setHighlight] = useState(false);
@@ -53,7 +59,9 @@ export default function Home() {
   function getJsFile(path) {
     try {
       fetch(path)
-      .then(response => response.text())
+      .then(response => {
+        return response.text();
+      })
       .then(text => {
         setCode(text)
       })
@@ -63,9 +71,16 @@ export default function Home() {
   }
 
   useEffect(() => {
-    // numberShader();
-    getJsFile(js_path)
+    // get numberShader.js
+    // prism();
+    getJsFile("/js/numberShader.js");
+    // Prism.highlightAll();
   }, []);
+
+  useEffect(() => {
+    Prism.highlightAll();
+    prismLineNumbers();
+  }, [code]);
   
   return (
     <>
@@ -75,13 +90,18 @@ export default function Home() {
         <meta charSet="utf-8" />
         <meta name="description" content="Javascript demo site" />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="stylesheet" href="/css/prism-line-numbers.css" />
       </Head>
       <Layout links={links}>
         <div className="container">
           <div className="js p-4">
             <div className="row row-cols-1 row-cols-lg-2 g-1">
-              <div className="col order-last order-lg-first">
-                {code}
+              <div className="col col-lg-8 order-last order-lg-first">
+                <pre className="line-numbers">
+                  <code className="language-javascript">
+                    {code}
+                  </code>
+                </pre>
               </div>
               <div className={`col order-first order-lg-last pt-0 pt-lg-4 mb-5 mb-lg-0 px-3 js__app${highlight ? " js__app--highlight" : ""}`}>
                 <form>
@@ -126,6 +146,7 @@ export default function Home() {
           </div>
         </div>
       </Layout>
+      {/* <Script src="/js/prism.js" strategy="afterInteractive" /> */}
     </>
   )
 }

@@ -3,6 +3,7 @@ import Layout from '../../../components/layouts/Layout';
 import numberShader from '../../../components/js/numberShader';
 import {useEffect, useState} from 'react';
 import {numberShaderLinks as links} from '../../../components/js/links';
+// import Script from 'next/script';
 
 function getChecklist() {
   let checkList = ["CSS and Bootstrap Layout", "Javascript Fundamentals", "Javascript Loops","Javascript Functions","Javascript DOM manipulation","Javascript If/Else","Javascript Boolean Logic"];
@@ -48,8 +49,20 @@ export default function Home() {
     setHighlight(state);
   }
 
+  // function addScript(path) {
+  //   let script = document.createElement('script');
+  //   script.type = 'text/javascript';
+  //   script.src = path;
+  //   document.body.appendChild(script);
+  // }
+
   useEffect(() => {
-    numberShader();
+      // load js
+      numberShader();
+      // let scripts = ["/js/numberShader.js"];
+      // scripts.forEach(item => {
+      //   addScript(item);
+      // });
   }, []);
   
   return (
@@ -120,6 +133,7 @@ export default function Home() {
           </div>
         </div>
       </Layout>
+      {/* <Script src="/js/numberShader.js" strategy="afterInteractive" /> */}
     </>
   )
 }
