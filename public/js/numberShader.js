@@ -46,6 +46,7 @@ function displayValues(range, even) {
   resetTable();
   let textArr = [];
   let highlightStyle = "table-danger";
+  
   if (even) {
     for (let i = 0; i < range.length; ++i) {
       let number = range[i];

@@ -4,10 +4,6 @@ import Layout from '../../../components/layouts/Layout';
 import {useEffect, useState} from 'react';
 import {numberShaderLinks as links} from '../../../components/js/links';
 import "prismjs/themes/prism.css";
-// import "/css/prism-line-numbers.css";
-// import prism from '../../../components/js/prism';
-// import prism from '../../../public/js/prism';
-// import Script from 'next/script';
 import Prism from 'prismjs';
 import prismLineNumbers from '../../../components/js/prism-line-numbers'
 
@@ -71,10 +67,8 @@ export default function Home() {
   }
 
   useEffect(() => {
-    // get numberShader.js
-    // prism();
+    // get numberShader.js as text
     getJsFile("/js/numberShader.js");
-    // Prism.highlightAll();
   }, []);
 
   useEffect(() => {
@@ -88,7 +82,7 @@ export default function Home() {
         <title>Javascript Mini-Site Main</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta charSet="utf-8" />
-        <meta name="description" content="Javascript demo site" />
+        <meta name="description" content="Javascript Code Explanation" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="stylesheet" href="/css/prism-line-numbers.css" />
       </Head>
@@ -96,57 +90,66 @@ export default function Home() {
         <div className="container">
           <div className="js p-4">
             <div className="row row-cols-1 row-cols-lg-2 g-1">
-              <div className="col col-lg-8 order-last order-lg-first">
+              <div className="col col-lg-8">
                 <pre className="line-numbers">
                   <code className="language-javascript">
                     {code}
                   </code>
                 </pre>
               </div>
-              <div className={`col order-first order-lg-last pt-0 pt-lg-4 mb-5 mb-lg-0 px-3 js__app${highlight ? " js__app--highlight" : ""}`}>
-                <form>
-                  <div className="row row-cols-2">
-                    <div className="col">
-                      <label htmlFor="startValue" className="form-label">Start</label>
-                      <input type="number" className="form-control" id="startValue" min={minValue} max={maxValue} value={startValue} onChange={(event) => {inputChange(setStartValue, event)}} onFocus={() => {handleHighlight(false)}} />
-                    </div>
-                    <div className="col">
-                      <label htmlFor="endValue" className="form-label">End</label>
-                      <input type="number" className="form-control" id="endValue" min={minValue} max={maxValue} value={endValue} onChange={(event) => {inputChange(setEndValue, event)}} onFocus={() => {handleHighlight(false)}} />
-                    </div>
-                  </div>
-                </form>
-                <div className="options mt-3 d-flex flex-column align-items-end">
-                  <div className="form-check">
-                    <input className="form-check-input" type="radio" name="odd" id="even" onFocus={() => {handleHighlight(false)}} defaultChecked />
-                    <label className="form-check-label" htmlFor="even">
-                      Even
-                    </label>
-                  </div>
-                  <div className="form-check">
-                    <input className="form-check-input" type="radio" name="odd" id="odd" onFocus={() => {handleHighlight(false)}} />
-                    <label className="form-check-label" htmlFor="odd">
-                      Odd&nbsp;
-                    </label>
-                  </div>
-                  <button type="button" className="btn btn-danger border-2 mt-2" id="runButton" onClick={() => {handleHighlight(false)}} >Run</button>
-                  <button type="button" className="btn btn-secondary border-2 mt-2" id="resetButton" onClick={() => {handleHighlight(false)}} >Clear</button>
+              <div className="col col-lg-4">
+                <div className="p-4">
+                  <p>Variables for the table, will be used in the functions <span className="fw-bold">displayValues</span> and <span className="fw-bold">resetTable</span>.</p>
+                  <p><span className="fw-bold">resetButton, runButton</span> variables for the buttons.</p>
+                  <span>&nbsp;</span>
+                  <p><span className="fw-bold">addEventListener</span> adds click functionality, so when the buttons are clicked, the callback function (the function that get called at the end) runs.</p>
+                  <span>&nbsp;</span>
+                  <h5>runCode</h5>
+                  <p>Get the start and end integer values from the form.</p>
+                  <span>&nbsp;</span>
+                  <p>Convert the strings into integers.</p>
+                  <span>&nbsp;</span>
+                  <p>Check if they are valid integers; if so, proceed.</p>
+                  <p>Get an array that contains the range of integers.</p>
+                  <span>&nbsp;</span>
+                  <p>Get the even or odd selected value.</p>
+                  <span>&nbsp;</span>
+                  <p>Call the function to dynamically display the table values.</p>
+                  <p>&nbsp;</p>
+                  <span>&nbsp;</span>
+                  <h5>generateRange</h5>
+                  <p><span className="fw-bold">arr</span> stands for array.</p>
+                  <p>If <span className="fw-bold">start</span> is less than or equal to <span className="fw-bold">end</span>,<br />use incrementing for loop<br />and append integers into array.</p>
+                  {/* <span>&nbsp;</span> */}
+                  <p>Else,<br />use decrementing for loop,<br />and append integers into array.</p>
+                  <span>&nbsp;</span>
+                  <p>Return the array.</p>
+                  <p>&nbsp;</p>
+                  <h5>displayValues</h5>
+                  <span>Reset the table to blank.</span><br />
+                  <span><span className="fw-bold">textArr</span> is an array that will store the table content.</span><br />
+                  <span><span className="fw-bold">highlightStyle</span> is a string for a bootstrap class.</span><br />
+                  <span>&nbsp;</span>
+                  <p>If even is selected,<br />use incremental for loop,<br />grab current number,<br />check if it's even,<br />and highlight the even numbers,<br /><br />but not the odd numbers.</p>
+                  <p>&nbsp;</p>
+                  <p>Else, highlight the odd numbers.</p>
+                  <p>&nbsp;</p>
+                  <p>&nbsp;</p>
+                  <p>&nbsp;</p>
+                  <p>&nbsp;</p>
+                  <span>&nbsp;</span><br />
+                  <span>Show the table by removing <span className="fw-bold">d-none</span> class.</span><br />
+                  <p>Add the table contents from <span className="fw-bold">textArr</span> array.</p>
+                  <span>&nbsp;</span>
+                  <h5>resetTable</h5>
+                  <span>Hide the table by adding <span className="fw-bold">d-none</span> class.</span><br />
+                  <p>Clear out the table's body content.</p>
                 </div>
-                <table className={`table mt-3 d-none`} id="results">
-                  <thead>
-                    <tr>
-                      <th scope="col">Results</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                  </tbody>
-                </table>
               </div>
             </div>
           </div>
         </div>
       </Layout>
-      {/* <Script src="/js/prism.js" strategy="afterInteractive" /> */}
     </>
   )
 }
