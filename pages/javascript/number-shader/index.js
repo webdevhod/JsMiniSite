@@ -9,11 +9,12 @@ export default function Home() {
   let [startValue, setStartValue] = useState(0);
   let [endValue, setEndValue] = useState(10);
   let [highlight, setHighlight] = useState(false);
+  let iconClass = "fas fa-sort-numeric-up";
   let checkList = ["CSS and Bootstrap Layout", "Javascript Fundamentals", "Javascript Loops","Javascript Functions","Javascript DOM manipulation","Javascript If/Else","Javascript Boolean Logic"];
   let appName = "Number Shader";
   let description = "This Javascript application will print out numbers between a range, and will highlight the even or odd numbers.";
   let metaData = {
-    appName, description, links, checkList, highlight, handleHighlight
+    appName, description, links, checkList, highlight, handleHighlight, iconClass
   };
  
   function inputChange(handler, event) {

@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import Layout from './Layout';
-import {useState} from 'react';
 
 function getStackIcons() {
   return (
@@ -16,12 +15,6 @@ function getStackIcons() {
 }
 
 export default function AppLayout(props) { 
-  // let [highlight, setHighlight] = useState(false);
-
-  // function handleHighlight(state=false) {
-  //   setHighlight(state);
-  // }
-
   function getChecklist(checkList=props.metaData.checkList) {
     return (
       <ul className="fa-ul">
@@ -47,7 +40,7 @@ export default function AppLayout(props) {
             <div className="row row-cols-1 row-cols-lg-2 g-1">
               <div className="col order-last order-lg-first">
                 <div className="logo-container text-center">
-                  <i className="fas fa-sort-numeric-up app-logo"></i>
+                  <i className={`app-logo ${props.metaData.iconClass}`}></i>
                 </div>
                 <h1 className="text-uppercase fw-bold text-danger">{props.metaData.appName}</h1>               
                 <p className="lead">{props.metaData.description}</p>
