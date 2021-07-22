@@ -12,6 +12,7 @@ export default function NumberShaderCode() {
   return (
     <CodeLayout metaData={metaData}>
       <div className="p-4">
+        <span><h5 className="d-inline-block">reversedString</h5> will be called externally.</span>
         <p>Variables for the table, will be used in the functions <span className="fw-bold">displayValues</span> and <span className="fw-bold">resetTable</span>.</p>
         <p><span className="fw-bold">resetButton, runButton</span> variables for the buttons.</p>
         <span>&nbsp;</span>
@@ -50,7 +51,6 @@ export default function NumberShaderCode() {
         <p>&nbsp;</p>
         <p>&nbsp;</p>
         <p>&nbsp;</p>
-        <span>&nbsp;</span><br />
         <span>Show the table by removing <span className="fw-bold">d-none</span> class.</span><br />
         <p>Add the table contents from <span className="fw-bold">textArr</span> array.</p>
         <span>&nbsp;</span>

@@ -50,7 +50,7 @@ export default function AppLayout(props) {
                 {getChecklist(props.metaData.checkList)}
                 {getStackIcons()}
               </div>
-              <div className={`col order-first order-lg-last pt-0 pt-lg-4 mb-5 mb-lg-0 px-3 js__app${props.metaData.highlight ? " js__app--highlight" : ""}`}>
+              <div className={`col order-first order-lg-last pt-0 pt-lg-4 mb-5 mb-lg-0 px-3 js__app${props.metaData.highlight ? " js__app--highlight rounded" : ""}`}>
                 {props.children}
               </div>
             </div>

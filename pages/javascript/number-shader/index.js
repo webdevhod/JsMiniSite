@@ -1,5 +1,5 @@
 import AppLayout from '../../../components/layouts/AppLayout';
-import numberShader from '../../../components/js/numberShader';
+import numberShader from '../../../public/js/numberShader';
 import {useEffect, useState} from 'react';
 import {numberShaderLinks as links} from '../../../components/js/links';
 

@@ -1,5 +1,5 @@
 import AppLayout from '../../../components/layouts/AppLayout';
-import reverseString from '../../../components/js/reverseString';
+import reverseString from '../../../public/js/reverseString';
 import {useEffect, useState} from 'react';
 import {reverseStringLinks as links} from '../../../components/js/links';
 
