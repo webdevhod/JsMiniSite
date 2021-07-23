@@ -16,7 +16,7 @@ export default function fizzBuzz() {
     fizz = Number.parseInt(fizz);
     buzz = Number.parseInt(buzz);
 
-    if (!isNaN(fizz) && !isNaN(buzz)) {
+    if (Number.isInteger(fizz) && Number.isInteger(buzz)) {
       // get table
       let fizzBuzzTable = generateTable(fizz, buzz);
   
@@ -31,10 +31,12 @@ export default function fizzBuzz() {
     let buzzColorClass = "text-success";
     let fizzBuzzColorClass = "text-warning";
     let textTuple = ["", null];
+    let checkFizz = false;
+    let checkBuzz = false;
 
     for(let i = 1; i <= 100; ++i) {
-      let checkFizz = i % fizz === 0;
-      let checkBuzz = i % buzz === 0;
+      checkFizz = i % fizz === 0;
+      checkBuzz = i % buzz === 0;
 
       if(checkFizz) {
         if(checkBuzz) {

@@ -15,7 +15,7 @@ export default function FizzBuzz() {
         <p>&nbsp;</p>
         <p>Parse the <span className="fw-bold">fizz</span> and <span className="fw-bold">buzz</span> values into integers.</p>
         <span>&nbsp;</span>
-        <p>Check if both <span className="fw-bold">fizz</span> and <span className="fw-bold">buzz</span> values are valid numbers.</p>
+        <p>Check if both <span className="fw-bold">fizz</span> and <span className="fw-bold">buzz</span> values are valid integers.</p>
         <p>If so, call <span className="fw-bold">generateTable</span> function will return a generated string of the innerHTML content.</p>
         <p><span className="fw-bold">displayTable</span> will display the new content.</p>
         <p>&nbsp;</p>
@@ -23,6 +23,7 @@ export default function FizzBuzz() {
         <p><span className="fw-bold">arr</span> is an empty array that will store the text.</p>
         <p>Varibles to store Bootstrap text color classes.</p>
         <p><span className="fw-bold">textTuple</span> is a tuple that will temporarily store Fizz Buzz text and the respective color.</p>
+        <p><span className="fw-bold">checkFizz</span> and <span className="fw-bold">checkBuzz</span> are reusable variables.</p>
         <p>For loop from 1 to 100:</p>
         <p>Store if the number i is a valid fizz and/or buzz.</p>
         <span>&nbsp;</span><br/>

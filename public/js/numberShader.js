@@ -16,7 +16,7 @@ export default function numberShader() {
     start = Number.parseInt(start);
     end = Number.parseInt(end);
   
-    if (!isNaN(start) && !isNaN(end)) {
+    if (Number.isInteger(start) && Number.isInteger(end)) {
       // get array
       let range = generateRange(start, end);
   
