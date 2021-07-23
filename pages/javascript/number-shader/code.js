@@ -1,14 +1,7 @@
 import CodeLayout from '../../../components/layouts/CodeLayout';
-import {numberShaderLinks} from '../../../components/js/links';
+import {numberShaderMetaData as metaData} from '../../../components/js/metaData';
 
 export default function NumberShaderCode() { 
-  let metaData = {
-    title: "Number Shader Code",
-    description: "This Javascript application will print out numbers between a range, and will highlight the even or odd numbers.",
-    links: numberShaderLinks,
-    jsFile: '/js/numberShader.js'
-  }
-  
   return (
     <CodeLayout metaData={metaData}>
       <div className="p-4">

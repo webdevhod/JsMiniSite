@@ -1,2 +1,3 @@
 export let numberShaderLinks = [['Home', '/javascript/number-shader'], ['The Code', '/javascript/number-shader/code'], ['Git Repo', '#']];
 export let reverseStringLinks = [['Home', '/javascript/reverse-string'], ['The Code', '/javascript/reverse-string/code'], ['Git Repo', '#']];
+export let fizzBuzzLinks = [['Home', '/javascript/fizz-buzz'], ['The Code', '/javascript/fizz-buzz/code'], ['Git Repo', '#']];

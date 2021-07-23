@@ -42,7 +42,7 @@ export default function AppLayout(props) {
                 <div className="logo-container text-center">
                   <i className={`app-logo ${props.metaData.iconClass}`}></i>
                 </div>
-                <h1 className="text-uppercase fw-bold text-danger">{props.metaData.appName}</h1>               
+                <h1 className="text-uppercase fw-bold text-danger">{props.metaData.title}</h1>               
                 <p className="lead">{props.metaData.description}</p>
                 <div className="d-flex mb-4">
                   <button className="btn btn-warning text-uppercase" type="button" onClick={() => {props.metaData.handleHighlight(true)}}>TRY IT OUT</button>

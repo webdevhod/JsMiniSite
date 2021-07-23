@@ -1,25 +1,30 @@
 import AppLayout from '../../../components/layouts/AppLayout';
-import fizzBuzz from '../../../components/js/fizzBuzz';
+import fizzBuzz from '../../../public/js/fizzBuzz';
 import {useEffect, useState} from 'react';
-import {numberShaderLinks as links} from '../../../components/js/links';
+import {fizzBuzzMetaData} from '../../../components/js/metaData';
 
 export default function Home() { 
-  let minValue = 1;
+  let minValue = 0;
   let maxValue = 100;
   let [fizz, setFizz] = useState(3);
   let [buzz, setBuzz] = useState(5);
   let [highlight, setHighlight] = useState(false);
-  let iconClass = "fab fa-forumbee";
+  let iconClass = "fab fa-forumbee pb-2";
   let checkList = ["CSS and Bootstrap Layout", "Javascript Fundamentals", "Javascript Loops","Javascript Functions","Javascript DOM manipulation","Javascript If/Else","Javascript Boolean Logic"];
-  let appName = "Fizz Buzz";
-  let description = "This Javascript application print Fizz for multiples of first input, Buzz for multiples of the second input, or FizzBuzz for both.";
+
   let metaData = {
-    appName, description, links, checkList, highlight, handleHighlight, iconClass
+    title: fizzBuzzMetaData.title,
+    description: fizzBuzzMetaData.description,
+    links: fizzBuzzMetaData.links,
+    jsFile: fizzBuzzMetaData.jsFile,
+    checkList, highlight, handleHighlight, iconClass
   };
  
   function inputChange(handler, event) {
     let inputValue = event.target.value;
-    handler(inputValue);
+    if(inputValue >= minValue && inputValue <= maxValue) {
+      handler(inputValue);
+    }
   }
 
   function handleHighlight(state=false) {

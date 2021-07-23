@@ -1,7 +1,8 @@
 import AppLayout from '../../../components/layouts/AppLayout';
 import numberShader from '../../../public/js/numberShader';
 import {useEffect, useState} from 'react';
-import {numberShaderLinks as links} from '../../../components/js/links';
+// import {numberShaderLinks as links} from '../../../components/js/links';
+import {numberShaderMetaData} from '../../../components/js/metaData';
 
 export default function Home() { 
   let minValue = 0;
@@ -11,10 +12,10 @@ export default function Home() {
   let [highlight, setHighlight] = useState(false);
   let iconClass = "fas fa-sort-numeric-up";
   let checkList = ["CSS and Bootstrap Layout", "Javascript Fundamentals", "Javascript Loops","Javascript Functions","Javascript DOM manipulation","Javascript If/Else","Javascript Boolean Logic"];
-  let appName = "Number Shader";
-  let description = "This Javascript application will print out numbers between a range, and will highlight the even or odd numbers.";
+  
   let metaData = {
-    appName, description, links, checkList, highlight, handleHighlight, iconClass
+    ...numberShaderMetaData,
+    checkList, highlight, handleHighlight, iconClass
   };
  
   function inputChange(handler, event) {

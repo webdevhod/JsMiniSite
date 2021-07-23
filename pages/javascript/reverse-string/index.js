@@ -1,17 +1,16 @@
+import {useEffect, useState} from 'react';
 import AppLayout from '../../../components/layouts/AppLayout';
 import reverseString from '../../../public/js/reverseString';
-import {useEffect, useState} from 'react';
-import {reverseStringLinks as links} from '../../../components/js/links';
+import {reverseStringMetaData} from '../../../components/js/metaData';
 
 export default function Home() { 
   let [inputText, setInputText] = useState("");
   let [highlight, setHighlight] = useState(false);
   let iconClass = "fas fa-backward";
   let checkList = ["CSS and Bootstrap Layout", "Javascript Fundamentals", "Javascript For Loops", "Javascript Functions", "Javascript DOM manipulation"];
-  let appName = "String Reverser";
-  let description = "This Javascript application will reverse a string input.";
+  
   let metaData = {
-    appName, description, links, checkList, highlight, handleHighlight, iconClass
+    ...reverseStringMetaData, checkList, highlight, handleHighlight, iconClass
   };
  
   function inputChange(handler, event) {

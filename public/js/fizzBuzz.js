@@ -1,7 +1,6 @@
 export default function fizzBuzz() {
   let results = document.getElementById("results");
   let table = document.getElementById("results__table");
-  // let tbody = table.getElementsByTagName("tbody")[0];
   
   let resetButton = document.getElementById("resetButton");
   let runButton = document.getElementById("runButton");

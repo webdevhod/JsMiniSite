@@ -1,11 +1,11 @@
 import CodeLayout from '../../../components/layouts/CodeLayout';
-import {reverseStringMetaData as metaData} from '../../../components/js/metaData';
+import {fizzBuzzMetaData as metaData} from '../../../components/js/metaData';
 
-export default function NumberShaderCode() { 
+export default function FizzBuzz() {
   return (
     <CodeLayout metaData={metaData}>
       <div className="p-4">
-        <span><h5 className="d-inline-block">reversedString</h5> will be called externally.</span>
+        <span><h5 className="d-inline-block">fizzBuzz</h5> will be called externally.</span>
         <p><span className="fw-bold">resetButton</span> and <span className="fw-bold">runButton</span> variables for the buttons.</p>
         <p><span className="fw-bold">addEventListener</span> adds click functionality, and the callback functions are later called.</p>
         <p>Variables for the table, will be used in the functions <span className="fw-bold">displayValues</span> and <span className="fw-bold">resetTable</span>.</p>
