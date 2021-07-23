@@ -1,7 +1,6 @@
+import {useEffect, useState} from 'react';
 import AppLayout from '../../../components/layouts/AppLayout';
 import numberShader from '../../../public/js/numberShader';
-import {useEffect, useState} from 'react';
-// import {numberShaderLinks as links} from '../../../components/js/links';
 import {numberShaderMetaData} from '../../../components/js/metaData';
 
 export default function Home() { 

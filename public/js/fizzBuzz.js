@@ -8,6 +8,7 @@ export default function fizzBuzz() {
   runButton.addEventListener("click", runCode);
   resetButton.addEventListener("click", resetTable);
   
+
   function runCode() {
     let fizz = document.getElementById("fizzValue").value;
     let buzz = document.getElementById("buzzValue").value;
@@ -24,7 +25,6 @@ export default function fizzBuzz() {
     }
   }
   
-  // logic to generate an array containing the range of numbers
   function generateTable(fizz, buzz) {
     let arr = [];
     let fizzColorClass = "text-danger";
@@ -36,12 +36,14 @@ export default function fizzBuzz() {
       let checkFizz = i % fizz === 0;
       let checkBuzz = i % buzz === 0;
 
-      if(checkFizz && checkBuzz) {
-        textTuple[0] = "FizzBuzz";
-        textTuple[1] = fizzBuzzColorClass;
-      } else if (checkFizz) {
-        textTuple[0] = "Fizz";
-        textTuple[1] = fizzColorClass;
+      if(checkFizz) {
+        if(checkBuzz) {
+          textTuple[0] = "FizzBuzz";
+          textTuple[1] = fizzBuzzColorClass;
+        } else {
+          textTuple[0] = "Fizz";
+          textTuple[1] = fizzColorClass;
+        } 
       } else if (checkBuzz) {
         textTuple[0] = "Buzz";
         textTuple[1] = buzzColorClass;
