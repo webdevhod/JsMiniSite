@@ -32,27 +32,24 @@ export default function palindromeChecker() {
         return false;
       }
     }
-
-    return startIndex >= endIndex;
+    return true;
   }
+
 
   function checkValidChar(c) {
     return (/[a-zA-z0-9]/).test(c);
   }
+
   
   function displayText(text, isPalindrome) {
     resetText();
-
     resultText.innerHTML = `"${text}" <span class="fw-bold">is${isPalindrome ? "" : " not"}</span> a palindrome.`;
-    
     resultDisplay.classList.add(`${isPalindrome ? "alert-primary" : "alert-danger"}`);
     resultDisplay.classList.remove("invisible");
-    
   }
   
   function resetText() {
     resultText.innerHTML = "";
-    
     resultDisplay.classList.add("invisible");
     resultDisplay.classList.remove("alert-primary", "alert-danger");
   }
