@@ -18,3 +18,10 @@ export let fizzBuzzMetaData = {
   jsFile: '/js/fizzBuzz.js',
   links: [['Home', '/javascript/fizz-buzz'], ['The Code', '/javascript/fizz-buzz/code'], ['Git Repo', '#']]
 };
+
+export let palindromeCheckerMetaData = {
+  title: "Palindrome Checker",
+  description: "This Javascript application will check if an input text is a palindome. (All special characters are ignored.)",
+  jsFile: '/js/palindromeChecker.js',
+  links: [['Home', '/javascript/palindrome-checker'], ['The Code', '/javascript/palindrome-checker/code'], ['Git Repo', '#']]
+};
