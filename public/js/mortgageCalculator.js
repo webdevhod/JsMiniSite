@@ -1,7 +1,6 @@
 export default function mortageCalculator() {
   let results = document.getElementById("results");
   let tbody = document.getElementById("results__tbody");
-  
   let downPaymentElement = document.getElementById("downPayment");
   let totalPrincipalElement = document.getElementById("totalPrincipal");
   let totalInterestElement = document.getElementById("totalInterest");
@@ -32,12 +31,12 @@ export default function mortageCalculator() {
   }
   
   function generateMortgageData(houseValue, downPaymentRateValue, interestRateValue, yearsValue) {
+    let chart = [];
     let months = Math.ceil(yearsValue * 12);
     let downPayment = houseValue * downPaymentRateValue / 100;
     let balance = houseValue - downPayment;
     let totalPrincipal = balance;
-    let interestRateValueMonths = interestRateValue / 1200;
-    let chart = [];
+    let interestRateValueMonths = interestRateValue / 100 / 12;
     let principal = 0;
     let interest = 0;
     let totalInterest = 0;
@@ -45,10 +44,10 @@ export default function mortageCalculator() {
     let denominator = 1 - Math.pow(1 + interestRateValueMonths, -months);
     let payment = numerator / denominator;
 
+    
     for(let i = 0; i < months; ++i) {
       interest = balance * interestRateValueMonths;
       totalInterest += interest;
-            
       principal = payment - interest;
 
       if(principal > balance) {
@@ -57,9 +56,7 @@ export default function mortageCalculator() {
 
       balance -= principal;
       
-      chart.push({
-        payment, principal, interest, totalInterest, balance
-      })
+      chart.push({payment, principal, interest, totalInterest, balance})
     }
 
     return {downPayment, totalPrincipal, totalInterest, chart, totalCost: totalPrincipal + totalInterest};
