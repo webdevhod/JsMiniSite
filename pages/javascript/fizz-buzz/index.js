@@ -13,10 +13,7 @@ export default function Home() {
   let checkList = ["CSS and Bootstrap Layout", "Javascript Fundamentals", "Javascript Loops","Javascript Functions","Javascript DOM manipulation","Javascript If/Else","Javascript Boolean Logic"];
 
   let metaData = {
-    title: fizzBuzzMetaData.title,
-    description: fizzBuzzMetaData.description,
-    links: fizzBuzzMetaData.links,
-    jsFile: fizzBuzzMetaData.jsFile,
+    ...fizzBuzzMetaData,
     checkList, highlight, handleHighlight, iconClass
   };
  

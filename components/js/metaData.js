@@ -25,3 +25,10 @@ export let palindromeCheckerMetaData = {
   jsFile: '/js/palindromeChecker.js',
   links: [['Home', '/javascript/palindrome-checker'], ['The Code', '/javascript/palindrome-checker/code'], ['Git Repo', '#']]
 };
+
+export let mortgageCalculatorMetaData = {
+  title: "Mortgage Calculator",
+  description: "This Javascript application will calculate the mortgage loan over a given period.)",
+  jsFile: '/js/mortgageCalculator.js',
+  links: [['Home', '/javascript/mortgage-calculator'], ['The Code', '/javascript/mortgage-calculator/code'], ['Git Repo', '#']]
+};
