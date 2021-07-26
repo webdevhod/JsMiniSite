@@ -1,6 +1,5 @@
 import AppLayout from '../../../components/layouts/AppLayout';
-import {useEffect, useState} from 'react';
-import mortgageCalculator from '../../../public/js/mortgageCalculator';
+import {useState} from 'react';
 import {mortgageCalculatorMetaData} from '../../../components/js/metaData';
 
 export default function MortgageCalculator() { 
@@ -29,10 +28,6 @@ export default function MortgageCalculator() {
   function handleHighlight(state=false) {
     setHighlight(state);
   }
-
-  useEffect(() => {
-    mortgageCalculator();
-  }, []);
   
   return (
     <AppLayout metaData={metaData}>

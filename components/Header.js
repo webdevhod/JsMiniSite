@@ -1,14 +1,14 @@
-import Link from "next/link";
 import { useRouter } from "next/router";
 
 export default function Header(props) {
   let router = useRouter();
+  
   function getNavLinks() {
     return props.links.map((item, index) => {
       if (router.pathname == item[1]) {
-        return (<Link href={`${item[1]}`} key={index}><a className="nav-link active" aria-current="page">{item[0]}</a></Link>);
+        return (<a className="nav-link active" href={`${item[1]}`} key={index} aria-current="page">{item[0]}</a>);
       } else {
-        return (<Link href={`${item[1]}`} key={index}><a className="nav-link">{item[0]}</a></Link>);
+        return (<a className="nav-link" href={`${item[1]}`} key={index}>{item[0]}</a>);
       }
     })
   }
@@ -16,7 +16,7 @@ export default function Header(props) {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container">
-        <Link href="#"><a className="navbar-brand">Navbar</a></Link>
+        <a className="navbar-brand" href="#">Navbar</a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon" />
         </button>

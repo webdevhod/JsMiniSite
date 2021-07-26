@@ -1,56 +1,54 @@
-export default function palindromeChecker() {
-  let resetButton = document.getElementById("resetButton");
-  let runButton = document.getElementById("runButton");
-  
-  runButton.addEventListener("click", runCode);
-  resetButton.addEventListener("click", resetText);
+let resetButton = document.getElementById("resetButton");
+let runButton = document.getElementById("runButton");
 
-  let resultDisplay = document.getElementById("result");
-  let resultText = document.getElementById("result__text");
+runButton.addEventListener("click", runCode);
+resetButton.addEventListener("click", resetText);
 
-  function runCode() {
-    let text = document.getElementById("inputText").value;
+let resultDisplay = document.getElementById("result");
+let resultText = document.getElementById("result__text");
 
-    let isPalindrome = checkPalindrome(text);
+function runCode() {
+  let text = document.getElementById("inputText").value;
 
-    displayText(text, isPalindrome);
-  }
-  
-  function checkPalindrome(text) {
-    let startIndex = 0;
-    let endIndex = text.length - 1;
+  let isPalindrome = checkPalindrome(text);
 
-    while (startIndex < endIndex) {
-      if(!checkValidChar(text[startIndex])) {
-        startIndex += 1;
-      } else if (!checkValidChar(text[endIndex])) {
-        endIndex -= 1;
-      } else if(text[startIndex].toLowerCase() === text[endIndex].toLowerCase()) {
-        startIndex += 1;
-        endIndex -= 1;
-      } else {
-        return false;
-      }
+  displayText(text, isPalindrome);
+}
+
+function checkPalindrome(text) {
+  let startIndex = 0;
+  let endIndex = text.length - 1;
+
+  while (startIndex < endIndex) {
+    if(!checkValidChar(text[startIndex])) {
+      startIndex += 1;
+    } else if (!checkValidChar(text[endIndex])) {
+      endIndex -= 1;
+    } else if(text[startIndex].toLowerCase() === text[endIndex].toLowerCase()) {
+      startIndex += 1;
+      endIndex -= 1;
+    } else {
+      return false;
     }
-    return true;
   }
+  return true;
+}
 
 
-  function checkValidChar(c) {
-    return (/[a-zA-z0-9]/).test(c);
-  }
+function checkValidChar(c) {
+  return (/[a-zA-z0-9]/).test(c);
+}
 
-  
-  function displayText(text, isPalindrome) {
-    resetText();
-    resultText.innerHTML = `"${text}" <span class="fw-bold">is${isPalindrome ? "" : " not"}</span> a palindrome.`;
-    resultDisplay.classList.add(`${isPalindrome ? "alert-primary" : "alert-danger"}`);
-    resultDisplay.classList.remove("invisible");
-  }
-  
-  function resetText() {
-    resultText.innerHTML = "";
-    resultDisplay.classList.add("invisible");
-    resultDisplay.classList.remove("alert-primary", "alert-danger");
-  }
+
+function displayText(text, isPalindrome) {
+  resetText();
+  resultText.innerHTML = `"${text}" <span class="fw-bold">is${isPalindrome ? "" : " not"}</span> a palindrome.`;
+  resultDisplay.classList.add(`${isPalindrome ? "alert-primary" : "alert-danger"}`);
+  resultDisplay.classList.remove("invisible");
+}
+
+function resetText() {
+  resultText.innerHTML = "";
+  resultDisplay.classList.add("invisible");
+  resultDisplay.classList.remove("alert-primary", "alert-danger");
 }

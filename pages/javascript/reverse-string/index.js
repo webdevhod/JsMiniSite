@@ -1,6 +1,5 @@
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
 import AppLayout from '../../../components/layouts/AppLayout';
-import reverseString from '../../../public/js/reverseString';
 import {reverseStringMetaData} from '../../../components/js/metaData';
 
 export default function Home() { 
@@ -21,10 +20,6 @@ export default function Home() {
   function handleHighlight(state=false) {
     setHighlight(state);
   }
-
-  useEffect(() => {
-    reverseString();
-  }, []);
   
   return (
     <AppLayout metaData={metaData}>

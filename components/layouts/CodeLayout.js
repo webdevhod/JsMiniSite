@@ -1,18 +1,18 @@
 import Head from 'next/head';
 import Layout from './Layout';
 import {useEffect, useState} from 'react';
-import "prismjs/themes/prism.css";
 import Prism from 'prismjs';
-import prismLineNumbers from '../js/prism-line-numbers'
+import prismLineNumbers from '../js/prism-line-numbers';
+import axios from "axios";
 
 export default function CodeLayout(props) { 
   let [code, setCode] = useState("");
  
-  function getJsFile(path) {
+  function getJsFile(path=`http://localhost:3000${props.metaData.jsFile}`) {
     try {
-      fetch(path)
+      axios.get(path)
       .then(response => {
-        return response.text();
+        return response.data;
       })
       .then(text => {
         setCode(text)
@@ -23,7 +23,7 @@ export default function CodeLayout(props) {
   }
 
   useEffect(() => {
-    getJsFile(props.metaData.jsFile);
+    getJsFile();
   }, []);
 
   useEffect(() => {
@@ -39,7 +39,6 @@ export default function CodeLayout(props) {
         <meta charSet="utf-8" />
         <meta name="description" content={props.metaData.description} />
         <link rel="icon" href="/favicon.ico" />
-        <link rel="stylesheet" href="/css/prism-line-numbers.css" />
       </Head>
       <Layout links={props.metaData.links}>
         <div className="container">

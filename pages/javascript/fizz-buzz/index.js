@@ -1,6 +1,5 @@
 import AppLayout from '../../../components/layouts/AppLayout';
-import fizzBuzz from '../../../public/js/fizzBuzz';
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
 import {fizzBuzzMetaData} from '../../../components/js/metaData';
 
 export default function Home() { 
@@ -27,10 +26,6 @@ export default function Home() {
   function handleHighlight(state=false) {
     setHighlight(state);
   }
-
-  useEffect(() => {
-    fizzBuzz();
-  }, []);
   
   return (
     <AppLayout metaData={metaData}>

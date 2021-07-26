@@ -5,7 +5,6 @@ export default function NumberShaderCode() {
   return (
     <CodeLayout metaData={metaData}>
       <div className="p-4">
-        <span><h5 className="d-inline-block">reversedString</h5> will be called externally.</span>
         <p>Variables for the table, will be used in the functions <span className="fw-bold">displayValues</span> and <span className="fw-bold">resetTable</span>.</p>
         <p><span className="fw-bold">resetButton, runButton</span> variables for the buttons.</p>
         <span>&nbsp;</span>
@@ -37,7 +36,7 @@ export default function NumberShaderCode() {
         <span><span className="fw-bold">textArr</span> is an array that will store the table content.</span><br />
         <span><span className="fw-bold">highlightStyle</span> is a string for a bootstrap class.</span><br />
         <span>&nbsp;</span>
-        <p>If even is selected,<br />use incremental for loop,<br />grab current number,<br />check if it's even,<br />and highlight the even numbers,<br /><br />but not the odd numbers.</p>
+        <p>If even is selected,<br />use incremental for loop,<br />grab current number,<br />check if it&apos;s even,<br />and highlight the even numbers,<br /><br />but not the odd numbers.</p>
         <p>&nbsp;</p>
         <p>Else, highlight the odd numbers.</p>
         <p>&nbsp;</p>
@@ -49,7 +48,7 @@ export default function NumberShaderCode() {
         <span>&nbsp;</span>
         <h5>resetTable</h5>
         <span>Hide the table by adding <span className="fw-bold">d-none</span> class.</span><br />
-        <p>Clear out the table's body content.</p>
+        <p>Clear out the table&apos;s body content.</p>
       </div>
     </CodeLayout>
   )

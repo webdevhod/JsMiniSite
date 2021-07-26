@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Layout from './Layout';
+import Script from 'next/script';
 
 function getStackIcons() {
   return (
@@ -57,6 +58,7 @@ export default function AppLayout(props) {
           </div>
         </div>
       </Layout>
+      <Script src={props.metaData.jsFile} />
     </>
   )
 }
